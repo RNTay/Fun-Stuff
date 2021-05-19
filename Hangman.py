@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-answer_string = 'calculator'
+answer_string = 'chicken'
 answer = list(answer_string.upper())
 guess = ['_' for _ in answer]
 
@@ -84,32 +84,37 @@ _______
         print(drawing)
 
 
-print('Word:', ''.join(guess))
+def print_progress(guess_so_far):
+    global wrong_guesses
+    global answer_string
+    print()
+    print('Word:', ''.join(guess_so_far), ' ({} letters)'.format(str(len(answer_string))))
+    if len(wrong_guesses) == 0:
+        print('Wrong guesses: (None so far)')
+    else:
+        print('Wrong guesses:', ', '.join(wrong_guesses))
+
+
+print('Word:', ''.join(guess), ' ({} letters)'.format(str(len(answer_string))))
 while True:  # game is still playing
     print()
     guess_letter = input('Guess letter: ').upper()
     if guess_letter not in letters:
         print()
         print('Your guess was not a letter.')
-        print()
-        print('Word:', ''.join(guess))
-        print('Wrong guesses:', ', '.join(wrong_guesses))
+        print_progress(guess)
         continue
 
     if guess_letter in guess:
         print()
         print('You already guessed {} and it is correct.'.format(guess_letter))
-        print()
-        print('Word:', ''.join(guess))
-        print('Wrong guesses:', ', '.join(wrong_guesses))
+        print_progress(guess)
 
     elif guess_letter in answer:
         for answer_index in range(len(answer)):
             if guess_letter == answer[answer_index]:
                 guess[answer_index] = guess_letter
-        print()
-        print('Word:', ''.join(guess))
-        print('Wrong guesses:', ', '.join(wrong_guesses))
+        print_progress(guess)
         if guess == answer:
             print()
             print('-'*50)
@@ -121,15 +126,12 @@ while True:  # game is still playing
         if guess_letter in wrong_guesses:
             print()
             print('You already guessed {} and it is wrong.'.format(guess_letter))
-            print()
-            print('Word:', ''.join(guess))
-            print('Wrong guesses:', ', '.join(wrong_guesses))
+            print_progress(guess)
         else:
             wrong_guesses.append(guess_letter)
             mistakes_made += 1
             hangman_drawing(mistakes_made)
-            print('Word:', ''.join(guess))
-            print('Wrong guesses:', ', '.join(wrong_guesses))
+            print_progress(guess)
             if mistakes_made == 6:
                 print()
                 print('-'*50)
