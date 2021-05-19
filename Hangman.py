@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-answer_string = 'chicken'
+answer_string = 'calculate'  # store answer here
 answer = list(answer_string.upper())
 guess = ['_' for _ in answer]
 
