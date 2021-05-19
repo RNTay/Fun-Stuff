@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 def caesar_shift_encrypt(file_name: str, shift: int):
     """Encryption shifts characters to the right.
     e.g. A (shift 3) -> D"""
