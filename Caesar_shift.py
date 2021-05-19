@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 def caesar_shift_encrypt(file_name: str, shift: int):
-    """Encryption shifts characters to the right.
+    """Shifts all characters in a file to the right
+    by the shift amount.
     e.g. A (shift 3) -> D"""
     letters = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
     with open(file_name, 'r') as file:
@@ -19,7 +20,8 @@ def caesar_shift_encrypt(file_name: str, shift: int):
 
 
 def caesar_shift_decrypt(file_name: str, shift: int):
-    """Decryption shifts characters to the left.
+    """Shifts all characters in a file to the left
+    by the shift amount.
     e.g. E (shift 3) -> B"""
     letters = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
     with open(file_name, 'r') as file:
