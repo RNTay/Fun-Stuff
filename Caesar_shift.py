@@ -3,7 +3,8 @@
 def caesar_shift_encrypt(file_name: str, shift: int):
     """Shifts all characters in a file to the right
     by the shift amount.
-    e.g. A (shift 3) -> D"""
+    e.g. A (shift 3) -> D
+         X (shift 5) -> C"""
     letters = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
     with open(file_name, 'r') as file:
         plaintext = file.readlines()
@@ -22,7 +23,8 @@ def caesar_shift_encrypt(file_name: str, shift: int):
 def caesar_shift_decrypt(file_name: str, shift: int):
     """Shifts all characters in a file to the left
     by the shift amount.
-    e.g. E (shift 3) -> B"""
+    e.g. E (shift 3) -> B
+         B (shift 8) -> T"""
     letters = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
     with open(file_name, 'r') as file:
         ciphertext = file.readlines()
