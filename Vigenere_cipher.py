@@ -12,14 +12,12 @@ def vigenere_cipher(plaintext: str, key: str) -> str:
     key_indices = [letters.index(_) for _ in key]
 
     i = 0
-    current_key = key_indices[i]
-
     ciphertext = ''
 
     for character in plaintext:
+        current_key = key_indices[i]
         cipher_character = letters[(letters.index(character) + current_key) % len(letters)]
         ciphertext += cipher_character
         i = (i+1) % len(key)
-        current_key = key_indices[i]
 
     return ciphertext
