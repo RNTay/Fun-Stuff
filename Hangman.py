@@ -85,6 +85,7 @@ _______
 
 
 def print_progress(guess_so_far):
+    """Prints the word progress and wrong guesses."""
     global wrong_guesses
     global answer_string
     print()
