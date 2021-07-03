@@ -8,9 +8,9 @@ def game_over(g):
     3. Check both diagonals: top-left to bottom-right; top-right to bottom-left.
         If there is a winner, return True.
     4. If we have found no winners, it means either:
-        (a) the game is not yet over,
+        (a) the game is not yet over, return False,
         or
-        (b) the game is a draw.
+        (b) the game is a draw, return True.
     """
     # g = grid of the tic tac toe game
     length = len(g)  # side length of the board
